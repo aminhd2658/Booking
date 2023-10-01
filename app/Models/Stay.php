@@ -44,8 +44,7 @@ class Stay extends Model
 
     public function getRatingAttribute()
     {
-        return rand(1, 5);
-        //return $this->comments()->isAccepted()->avg('star');
+        return round($this->comments()->isAccepted()->avg('star'));
     }
 
 

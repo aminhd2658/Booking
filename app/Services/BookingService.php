@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Events\BookingCreated;
 use App\Interfaces\ModelInterface;
 use App\Models\Booking;
-use App\Models\DisableDay;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Model;
 

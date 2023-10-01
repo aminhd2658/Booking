@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\StoreCommentRequeust;
-use App\Models\Room;
 use App\Models\Stay;
-use App\Services\BookingService;
 use App\Services\CommentService;
 
 class CommentsController extends Controller
