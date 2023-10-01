@@ -5,7 +5,7 @@
 Setup the repository <br>
 ```
 git clone https://github.com/aminhd2658/booking.git
-cd ChargeFestival
+cd booking
 composer install
 cp .env.example .env 
 php artisan key:generate

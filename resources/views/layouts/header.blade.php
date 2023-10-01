@@ -11,7 +11,7 @@
                 <div class=" p-6 text-right z-10">
                     @auth
                         @if(Auth::user()->role == User::ADMIN)
-                            <a href="{{ route('admin.dashboard') }}" class="text-sm font-semibold leading-6 text-gray-900 mr-5">Dashboard</a>
+                            <a href="{{ route('admin.dashboard') }}" class="text-sm font-semibold leading-6 text-gray-900 mr-5">Admin dashboard</a>
                         @endif
 
                         <a href="{{ route('account.edit') }}" class="text-sm font-semibold leading-6 text-gray-900">Account</a>
