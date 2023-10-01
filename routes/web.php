@@ -20,20 +20,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
-    Route::patch('/account', [AccountController::class, 'update'])->name('account.update');
-    Route::delete('/account', [AccountController::class, 'destroy'])->name('account.destroy');
-});
-
 Route::prefix('stays')->group(function () {
     Route::get('{stay}', [StaysController::class, 'show'])->name('stays.show');
-    Route::post('/{stay}/comments', [CommentsController::class,'store'])->name('stays.comment.store');
+    Route::post('/{stay}/comments', [CommentsController::class, 'store'])->name('stays.comment.store');
 });
 
-Route::middleware('auth')->prefix('bookings')->group(function () {
-    Route::get('', [BookingController::class, 'index'])->name('booking.index');
-    Route::post('stays/{stay}/rooms/{room}/book', [BookingController::class, 'store'])->name('booking.store');
+Route::middleware('auth')->group(function () {
+
+    Route::prefix('account')->group(function () {
+        Route::get('', [AccountController::class, 'edit'])->name('account.edit');
+        Route::patch('', [AccountController::class, 'update'])->name('account.update');
+        Route::delete('', [AccountController::class, 'destroy'])->name('account.destroy');
+    });
+
+    Route::prefix('bookings')->group(function () {
+        Route::get('', [BookingController::class, 'index'])->name('booking.index');
+        Route::post('stays/{stay}/rooms/{room}/book', [BookingController::class, 'store'])->name('booking.store');
+    });
 });
 
 
